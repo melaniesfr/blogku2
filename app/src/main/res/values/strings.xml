@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Blog Ku</string>
     <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="admin">Admin</string>
+    <string name="admin_profile">Profile</string>
+    <string name="admin_data_kategori">Data Kategori</string>
+    <string name="admin_data_penulis">Data Penulis</string>
+    <string name="admin_rekap_post">Rekap Postingan</string>
+    <string name="admin_dashboard">Dashboard</string>
+    <string name="nama">Nama</string>
+    <string name="save">Save</string>
 </resources>

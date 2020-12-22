@@ -14,16 +14,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnMoveActivity = findViewById(R.id.btn_login);
-        btnMoveActivity.setOnClickListener(this);
+        Button btnLogin = findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(this);
+
+        Button btnAdmin = findViewById(R.id.btn_admin);
+        btnAdmin.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login:
-                Intent moveIntent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(moveIntent);
+                Intent moveLogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(moveLogin);
+                break;
+            case R.id.btn_admin:
+                Intent moveAdmin = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(moveAdmin);
                 break;
         }
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".AdminProfileActivity"
     android:padding="8dp">
 
     <LinearLayout
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/admin_profile"
             android:textSize="20sp"
             android:layout_marginBottom="20dp"
             android:textColor="@android:color/black"
@@ -39,7 +39,24 @@
             <EditText
                 android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="20dp"
-                android:id="@+id/login_email"
+                android:id="@+id/admin_edit_profile_nama"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="20dp"
+                android:id="@+id/admin_edit_profile_email"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -57,7 +74,7 @@
             <EditText
                 android:drawableStart="@drawable/ic_key"
                 android:drawablePadding="20dp"
-                android:id="@+id/login_pass"
+                android:id="@+id/admin_edit_profile_pass"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -70,7 +87,7 @@
             android:id="@+id/btn_login"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/save"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </ScrollView>
