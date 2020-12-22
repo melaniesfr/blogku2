@@ -10,5 +10,7 @@
     <string name="admin_rekap_post">Rekap Postingan</string>
     <string name="admin_dashboard">Dashboard</string>
     <string name="nama">Nama</string>
-    <string name="save">Save</string>
+    <string name="simpan">Simpan</string>
+    <string name="logout">Log Out</string>
+    <string name="tambah">Tambah</string>
 </resources>

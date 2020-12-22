@@ -87,7 +87,7 @@
             android:id="@+id/btn_login"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/save"
+            android:text="@string/simpan"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </ScrollView>

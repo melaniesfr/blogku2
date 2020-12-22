@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class AdminActivity extends AppCompatActivity implements View.OnClickListener {
+public class AdminActivity extends AppCompatActivity {
 
     ImageButton btnBack;
 
@@ -25,17 +25,21 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                 finish();
             }
         });
-
-        Button btnAdminProfile = findViewById(R.id.btn_admin_profile);
-        btnAdminProfile.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_admin_profile:
-                Intent moveAdminProfile = new Intent(AdminActivity.this, AdminProfileActivity.class);
-                startActivity(moveAdminProfile);
+    public void pindah(View view) {
+        switch (view.getId()){
+            case R.id.admin_profile :
+                startActivity(new Intent(AdminActivity.this, AdminProfileActivity.class));
+                break;
+            case R.id.admin_data_kategori :
+                startActivity(new Intent(AdminActivity.this, AdminDataKategoriActivity.class));
+                break;
+            case R.id.admin_data_penulis :
+                startActivity(new Intent(AdminActivity.this, AdminDataPenulisActivity.class));
+                break;
+            case R.id.admin_rekap_post :
+                startActivity(new Intent(AdminActivity.this, AdminRekapPostActivity.class));
                 break;
         }
     }
