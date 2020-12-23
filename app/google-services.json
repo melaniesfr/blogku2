@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "435624153853",
+    "firebase_url": "https://blogku2020-default-rtdb.firebaseio.com",
+    "project_id": "blogku2020",
+    "storage_bucket": "blogku2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435624153853:android:fbfdad7642b2bcedf76494",
+        "android_client_info": {
+          "package_name": "com.example.blogku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435624153853-h7pc8nbrl4tg2jdscumqoto5uqcu253f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blogku",
+            "certificate_hash": "dac127818aefd8797a69373655a3a6075d400a2e"
+          }
+        },
+        {
+          "client_id": "435624153853-kvk8pnenir9gt4cgoppv8j8k30bnke1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhsEM_3VTJIbz0CdnjT8uxGfx3bgVzSHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435624153853-kvk8pnenir9gt4cgoppv8j8k30bnke1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
