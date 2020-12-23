@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnAdmin = findViewById(R.id.btn_admin);
         btnAdmin.setOnClickListener(this);
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView = findViewById(R.id.list_post);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(layoutManager);
         fetchData = new ArrayList<>();
+
 
         // Inisialisasi objek untuk ke firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("post");
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(moveLogin);
                 break;
             case R.id.btn_admin:
-                Intent moveAdmin = new Intent(MainActivity.this, AdminActivity.class);
+                Intent moveAdmin = new Intent(MainActivity.this, LoginActivityAdmin.class);
                 startActivity(moveAdmin);
                 break;
         }

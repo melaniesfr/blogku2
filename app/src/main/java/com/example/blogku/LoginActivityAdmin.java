@@ -1,7 +1,5 @@
 package com.example.blogku;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,8 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG="LoginActivity";
+public class LoginActivityAdmin extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG="LoginActivityAdmin";
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_admin);
         mDatabase=FirebaseDatabase.getInstance().getReference();
         mAuth=FirebaseAuth.getInstance();
         loginEmail=findViewById(R.id.login_email);
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MainActivity
-        startActivity(new Intent(LoginActivity.this, PemainActivity.class));
+        startActivity(new Intent(LoginActivityAdmin.this, AdminActivity.class));
         finish();
     }
 
@@ -97,9 +98,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email);
+        Admin user = new Admin(name, email);
 
-        mDatabase.child("penulis").child(userId).setValue(user);
+        mDatabase.child("admin").child(userId).setValue(user);
     }
 
     @Override
@@ -117,7 +118,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (task.isSuccessful()) {
             onAuthSuccess(Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()));
         } else {
-            Toast.makeText(LoginActivity.this, "Sign Up Failed",
+            Toast.makeText(LoginActivityAdmin.this, "Sign Up Failed",
                     Toast.LENGTH_SHORT).show();
         }
     }

@@ -1,19 +1,16 @@
 package com.example.blogku;
 
-import com.google.firebase.database.IgnoreExtraProperties;
+class Admin {
 
-@IgnoreExtraProperties
-class User { 
     public String username;
     public String email;
 
-    public User() {
+    public Admin() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String username, String email) {
+    public Admin(String username, String email) {
         this.username = username;
         this.email = email;
     }
-
 }
