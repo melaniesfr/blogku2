@@ -3,7 +3,8 @@ package com.example.blogku;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-class User { public String username;
+class User { 
+    public String username;
     public String email;
 
     public User() {
