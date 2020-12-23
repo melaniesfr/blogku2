@@ -47,7 +47,7 @@
                 android:hint="@string/email"
                 android:textSize="15sp"
                 android:layout_marginStart="5dp"
-                tools:ignore="Autofill" />
+                 />
         </LinearLayout>
 
         <LinearLayout

@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.blogku">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlogKu">
-        <activity android:name=".DetailPostActivity"></activity>
+        <activity android:name=".PemainActivity"></activity>
+        <activity android:name=".DetailPostActivity" />
         <activity android:name=".AdminRekapPostActivity" />
         <activity android:name=".AdminDataPenulisActivity" />
         <activity android:name=".AdminDataKategoriActivity" />
         <activity android:name=".AdminProfileActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivityAdmin" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,5 +26,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
