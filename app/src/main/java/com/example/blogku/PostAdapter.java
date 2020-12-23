@@ -73,4 +73,5 @@ public class PostAdapter extends RecyclerView.Adapter {
     public void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
     }
+
 }
