@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
     private DatabaseReference mDatabase;
@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText loginEmail ;
     private EditText isiPass;
     private Button btnLogin;
-
 
     ImageButton btnBack;
 
@@ -42,9 +41,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginEmail = (EditText) findViewById(R.id.login_email);
         btnBack = (ImageButton) findViewById(R.id.btn_back);
         isiPass = (EditText) findViewById(R.id.login_pass);
-       btnLogin = (Button) findViewById(R.id.btn_login);
+        btnLogin = (Button) findViewById(R.id.btn_login);
 
-        btnBack.setOnClickListener(this);
+        btnBack.setOnClickListener((View.OnClickListener) this);
         btnLogin.setOnClickListener(this);
     }
 
@@ -72,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
     }
+
     private void onAuthSuccess(FirebaseUser user) {
         String username = usernameFromEmail(user.getEmail());
 
@@ -124,5 +124,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             signIn();
         }
     }
-
 }

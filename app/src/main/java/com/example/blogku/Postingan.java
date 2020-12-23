@@ -5,6 +5,10 @@ public class Postingan {
     private String file_gambar;
     private String isi_post;
 
+    public Postingan() {
+
+    }
+
     public Postingan(String judul, String file_gambar, String isi_post) {
         this.judul = judul;
         this.file_gambar = file_gambar;

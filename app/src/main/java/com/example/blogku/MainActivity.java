@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnAdmin = findViewById(R.id.btn_admin);
         btnAdmin.setOnClickListener(this);
 
-        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.list_post);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         fetchData = new ArrayList<>();
 
