@@ -2,6 +2,7 @@ package com.example.blogku;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,14 +17,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.blogku.adapter.PostAdapter;
+import com.example.blogku.model.PostList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    List<Postingan> fetchData;
+    List<PostList> itemPost;
     RecyclerView recyclerView;
-    PostAdapter postAdapter;
     DatabaseReference databaseReference;
 
     @Override
@@ -31,45 +33,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnLogin = findViewById(R.id.btn_login);
+        Button btnLogin = findViewById(R.id.btn_search);
         btnLogin.setOnClickListener(this);
 
-        Button btnAdmin = findViewById(R.id.btn_admin);
+        Button btnAdmin = findViewById(R.id.btn_kategori);
         btnAdmin.setOnClickListener(this);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView = findViewById(R.id.list_post);
-        recyclerView.setLayoutManager(layoutManager);
-        fetchData = new ArrayList<>();
-
-
-        // Inisialisasi objek untuk ke firebase
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(decoration);
+        itemPost = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("post");
+        getImageData();
+    }
+
+    // Inisialisasi objek untuk ke firebase
+    private void getImageData() {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Iterasi mengambil postingan
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    // Mengambil value setiap child dari 'post' (judul, file_gambar, isi_post)
-                    String judul = ds.child("judul").getValue().toString();
-                    String file_gambar = ds.child("file_gambar").getValue().toString();
-                    String isi_post = ds.child("isi_post").getValue().toString();
-                    Postingan data = new Postingan(judul, file_gambar, isi_post);
-                    fetchData.add(data);
+                    PostList postList = ds.getValue(PostList.class);
+                    itemPost.add(postList);
                 }
 
-                postAdapter = new PostAdapter(fetchData);
-                recyclerView.setAdapter(postAdapter);
+                PostAdapter adapter = new PostAdapter(itemPost, getApplicationContext());
+                recyclerView.setAdapter(adapter);
 
                 // Pindah activity apabila item pada list di click
-                postAdapter.setOnItemClickListener(new PostAdapter.OnItemClickListener() {
+                adapter.setOnItemClickListener(new PostAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        String judul = fetchData.get(position).getJudul();
+                        String judul = itemPost.get(position).getJudul();
                         startActivity(new Intent(MainActivity.this, DetailPostActivity.class).putExtra("judul", judul));
                     }
                 });
-
             }
 
             @Override
@@ -82,13 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_login:
-                Intent moveLogin = new Intent(MainActivity.this, LoginActivity.class);
+            case R.id.btn_search:
+                Intent moveLogin = new Intent(MainActivity.this, PencarianActivity.class);
                 startActivity(moveLogin);
-                break;
-            case R.id.btn_admin:
-                Intent moveAdmin = new Intent(MainActivity.this, LoginActivityAdmin.class);
-                startActivity(moveAdmin);
                 break;
         }
     }

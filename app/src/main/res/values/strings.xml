@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blog Ku</string>
+    <string name="app_name"><b><i>Blog Ku</i></b></string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

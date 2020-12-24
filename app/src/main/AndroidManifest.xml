@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlogKu">
+        <activity android:name=".PencarianActivity"></activity>
         <activity android:name=".PemainActivity" />
         <activity android:name=".DetailPostActivity" />
         <activity android:name=".AdminRekapPostActivity" />
@@ -28,4 +29,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

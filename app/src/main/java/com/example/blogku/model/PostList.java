@@ -1,15 +1,15 @@
-package com.example.blogku;
+package com.example.blogku.model;
 
-public class Postingan {
-    private String judul;
-    private String file_gambar;
-    private String isi_post;
+public class PostList {
+    public String judul;
+    public String file_gambar;
+    public String isi_post;
 
-    public Postingan() {
+    public PostList() {
 
     }
 
-    public Postingan(String judul, String file_gambar, String isi_post) {
+    public PostList(String judul, String file_gambar, String isi_post) {
         this.judul = judul;
         this.file_gambar = file_gambar;
         this.isi_post = isi_post;

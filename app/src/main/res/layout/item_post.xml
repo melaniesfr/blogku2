@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -30,29 +31,27 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"/>
 
-            <TextView
-                android:id="@+id/tv_file_gambar"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="File Gambar"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"/>
+                android:elevation="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardUseCompatPadding="true">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:adjustViewBounds="true"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_horizontal"/>
+                <ImageView
+                    android:id="@+id/tv_file_gambar"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_isi_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Isi Post"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_margin="20dp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
